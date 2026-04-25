@@ -1,0 +1,29 @@
+volumes:
+  hermes:
+  home:
+services:
+    hermes-agent:
+        container_name: hermes
+        restart: unless-stopped
+        volumes:
+            - home:/root
+            - hermes:/opt/data
+        ports:
+            - 8642:8642
+        image: nousresearch/hermes-agent
+        command: gateway run
+        environment:
+          - TELEGRAM_ALLOWED_USERS=282184670
+
+    hermes-dashboard:
+        container_name: hermes-dashboard
+        restart: unless-stopped
+        user: '10000'
+        volumes:
+            - hermes:/opt/data
+        ports:
+            - 9119:9119
+        environment:
+            - GATEWAY_HEALTH_URL=http://hermes:8642
+        image: nousresearch/hermes-agent
+        command: dashboard --host 0.0.0.0 --insecure 
