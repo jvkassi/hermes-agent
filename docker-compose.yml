@@ -10,7 +10,7 @@ services:
             - hermes:/opt/data
         ports:
             - 8642:8642
-        image: nousresearch/hermes-agent
+        build: .
         command: gateway run
         environment:
           - TELEGRAM_ALLOWED_USERS=282184670
@@ -25,5 +25,5 @@ services:
             - 9119:9119
         environment:
             - GATEWAY_HEALTH_URL=http://hermes:8642
-        image: nousresearch/hermes-agent
+        build: .
         command: dashboard --host 0.0.0.0 --insecure 
