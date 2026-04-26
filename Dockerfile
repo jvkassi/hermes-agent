@@ -11,3 +11,4 @@ RUN apt install vim inetutils-ping netcat-traditional jq python3-pip  -y
 # Fix node permission
 RUN echo '%sudo ALL=(ALL) NOPASSWD: ALL ' >> /etc/sudoers
 RUN usermod -aG sudo hermes
+RUN usermod -aG polkitd hermes
