@@ -5,8 +5,9 @@ FROM nousresearch/hermes-agent
 USER root
 
 RUN apt update -q
-RUN apt install chromium iproute2 sudo tmux screen  unzip -y
+RUN apt install chromium iproute2 sudo tmux screen unzip -y
 RUN apt install vim inetutils-ping netcat-traditional jq -y
+RUN usermod -aG sudo hermes
 
 # Fix node permission
 RUN echo '%sudo ALL=(ALL) NOPASSWD: ALL ' >> /etc/sudoers
