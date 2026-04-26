@@ -8,8 +8,9 @@ services:
         volumes:
             - home:/root
             - hermes:/opt/data
+            - /var/run/docker.sock:/var/run/docker.sock
         ports:
-            - 8642:8642
+            - 8642
         build: .
         command: gateway run
         environment:
