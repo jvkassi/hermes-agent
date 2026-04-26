@@ -6,8 +6,8 @@ USER root
 
 RUN apt update -q
 RUN apt install chromium iproute2 sudo tmux screen unzip -y
-RUN apt install vim inetutils-ping netcat-traditional jq -y
-RUN usermod -aG sudo hermes
+RUN apt install vim inetutils-ping netcat-traditional jq python3-pip  -y
 
 # Fix node permission
 RUN echo '%sudo ALL=(ALL) NOPASSWD: ALL ' >> /etc/sudoers
+RUN usermod -aG sudo hermes
