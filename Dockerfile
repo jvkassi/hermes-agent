@@ -6,7 +6,7 @@ USER root
 
 RUN apt update -q
 RUN apt install chromium iproute2 sudo tmux screen unzip -y
-RUN apt install vim inetutils-ping netcat-traditional jq python3-pip  -y
+RUN apt install vim inetutils-ping netcat-traditional jq python3-pip  strace python3-pip unzip  git  -y
 
 # Fix node permission
 RUN echo '%sudo ALL=(ALL) NOPASSWD: ALL ' >> /etc/sudoers
