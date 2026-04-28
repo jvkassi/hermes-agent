@@ -12,3 +12,4 @@ RUN apt install vim inetutils-ping netcat-traditional jq python3-pip  strace pyt
 RUN echo '%sudo ALL=(ALL) NOPASSWD: ALL ' >> /etc/sudoers
 RUN usermod -aG sudo hermes
 RUN usermod -aG polkitd hermes
+RUN usermod -s /bin/bash hermes
