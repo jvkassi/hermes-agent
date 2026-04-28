@@ -12,6 +12,8 @@ services:
         ports:
             - 8642
         build: .
+        env_file:
+          - .env
         command: gateway run
         environment:
           - TELEGRAM_ALLOWED_USERS=282184670
