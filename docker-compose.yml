@@ -9,24 +9,15 @@ services:
             - home:/root
             - hermes:/opt/data
             - /var/run/docker.sock:/var/run/docker.sock
-        ports:
+        expose:
             - 8642
+            - 9119
         build: .
         env_file:
           - .env
         command: gateway run
         environment:
+          - HERMES_DASHBOARD=1
           - TELEGRAM_ALLOWED_USERS=282184670
 
-    hermes-dashboard:
-        container_name: hermes-dashboard
-        restart: unless-stopped
-        user: '10000'
-        volumes:
-            - hermes:/opt/data
-        ports:
-            - 9119:9119
-        environment:
-            - GATEWAY_HEALTH_URL=http://hermes:8642
-        build: .
-        command: dashboard --host 0.0.0.0 --insecure 
+
