@@ -13,3 +13,4 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD: ALL ' >> /etc/sudoers
 RUN usermod -aG sudo hermes
 RUN usermod -aG polkitd hermes
 RUN usermod -s /bin/bash hermes
+RUN echo "alias hermes='/opt/hermes/.venv/bin/hermes'" | tee -a .bashrc
