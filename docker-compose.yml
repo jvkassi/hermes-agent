@@ -1,6 +1,7 @@
 volumes:
   hermes:
   home:
+  node:
 services:
     hermes-agent:
         build: .
@@ -35,8 +36,8 @@ services:
         container_name: hermes-node
         restart: unless-stopped
         # user: '10000'
-        # volumes:
-        #     - hermes:/opt/data
+        volumes:
+            - node:/opt/data
         environment:
             - GATEWAY_HEALTH_URL=http://hermes:8642
         build: .
