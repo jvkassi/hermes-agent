@@ -14,3 +14,9 @@ RUN usermod -aG sudo hermes
 RUN usermod -aG polkitd hermes
 RUN usermod -s /bin/bash hermes
 RUN echo "alias hermes='/opt/hermes/.venv/bin/hermes'" | tee -a .bashrc
+
+USER hermes
+
+RUN hermes plugins enable google_meet
+
+USER root
