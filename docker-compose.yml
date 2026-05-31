@@ -27,8 +27,8 @@ services:
         # user: '10000'
         volumes:
             - hermes:/opt/data
-        ports:
-            - 9119:9119
+        expose:
+            - 9119
         environment:
             - GATEWAY_HEALTH_URL=http://hermes:8642
         build: .
