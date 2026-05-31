@@ -17,6 +17,10 @@ RUN echo "alias hermes='/opt/hermes/.venv/bin/hermes'" | tee -a .bashrc
 
 USER hermes
 
+RUN curl -sS https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN /opt/hermes/.venv/bin/python get-pip.py
 RUN hermes plugins enable google_meet
+RUN /opt/hermes/.venv/bin/python -m pip install playwright
 
 USER root
+
