@@ -38,6 +38,8 @@ services:
         # user: '10000'
         volumes:
             - node:/opt/data
+        env_file:
+          - .env
         environment:
             - GATEWAY_HEALTH_URL=http://hermes:8642
         build: .
