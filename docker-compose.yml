@@ -24,7 +24,7 @@ services:
     hermes-dashboard:
         container_name: hermes-dashboard
         restart: unless-stopped
-        user: '10000'
+        # user: '10000'
         volumes:
             - hermes:/opt/data
         ports:
