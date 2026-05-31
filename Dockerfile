@@ -5,8 +5,10 @@ FROM nousresearch/hermes-agent:v2026.5.29.2
 USER root
 
 RUN apt update -q
-RUN apt install chromium iproute2 sudo tmux screen unzip -y
-RUN apt install vim inetutils-ping netcat-traditional jq python3-pip  strace python3-pip unzip  git curl  -y
+RUN apt install chromium iproute2 sudo tmux screen unzip \
+    vim inetutils-ping netcat-traditional jq python3-pip  strace python3-pip unzip  git curl  -y
+RUN curl -sSL https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
+RUN chmod 777 /tmp/get-pip.py
 
 # Fix node permission
 RUN echo '%sudo ALL=(ALL) NOPASSWD: ALL ' >> /etc/sudoers
@@ -17,11 +19,8 @@ RUN echo "alias hermes='/opt/hermes/.venv/bin/hermes'" | tee -a .bashrc
 
 USER hermes
 
-RUN cd /tmp
-RUN curl -sSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-RUN /opt/hermes/.venv/bin/python get-pip.py
 RUN hermes plugins enable google_meet
+RUN /opt/hermes/.venv/bin/python /tmp/get-pip.py
 RUN /opt/hermes/.venv/bin/python -m pip install playwright
 
 USER root
-
