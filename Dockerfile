@@ -24,3 +24,5 @@ RUN /opt/hermes/.venv/bin/python /tmp/get-pip.py
 RUN /opt/hermes/.venv/bin/python -m pip install playwright
 
 USER root
+
+ENV PATH="$PATH:/command"
