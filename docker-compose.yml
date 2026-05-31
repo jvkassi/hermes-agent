@@ -10,9 +10,7 @@ services:
             - home:/root
             - hermes:/opt/data
             - /var/run/docker.sock:/var/run/docker.sock
-        expose:
-            - 8642
-            - 9119
+        network_mode: host
         env_file:
           - .env
         command: gateway run
