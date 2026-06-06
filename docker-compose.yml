@@ -3,10 +3,12 @@ volumes:
   home:
   node:
 services:
-    hermes-agent:
+    hermes:
         build: .
         container_name: hermes
         restart: unless-stopped
+        expose: 
+          - 8642
         volumes:
             - home:/root
             - hermes:/opt/data
