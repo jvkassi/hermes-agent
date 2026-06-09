@@ -25,8 +25,8 @@ services:
         container_name: hermes-dashboard
         restart: unless-stopped
         # user: '10000'
-        volumes:
-            - hermes:/opt/data
+        # volumes:
+        #     - hermes:/opt/data
         expose:
             - 9119
         environment:
