@@ -17,7 +17,7 @@ services:
           - .env
         command: gateway run
         environment:
-          - HERMES_DASHBOARD=1
+          # - HERMES_DASHBOARD=1
           - TELEGRAM_ALLOWED_USERS=282184670
 
 
