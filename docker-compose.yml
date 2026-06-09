@@ -34,15 +34,15 @@ services:
         build: .
         command: dashboard --host 0.0.0.0 --insecure 
 
-    hermes-node:
-        container_name: hermes-node
-        restart: unless-stopped
-        # user: '10000'
-        volumes:
-            - node:/opt/data
-        env_file:
-          - .env
-        environment:
-            - GATEWAY_HEALTH_URL=http://hermes:8642
-        build: .
-        command: meet node run
+    # hermes-node:
+    #     container_name: hermes-node
+    #     restart: unless-stopped
+    #     # user: '10000'
+    #     volumes:
+    #         - node:/opt/data
+    #     env_file:
+    #       - .env
+    #     environment:
+    #         - GATEWAY_HEALTH_URL=http://hermes:8642
+    #     build: .
+    #     command: meet node run
