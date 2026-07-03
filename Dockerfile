@@ -1,5 +1,5 @@
 # Look here for latest version alpine/openclaw - Docker Image
-FROM nousresearch/hermes-agent:main
+FROM nousresearch/hermes-agent:v2026.7.1
 
 # Switch to root , to install packages
 USER root
