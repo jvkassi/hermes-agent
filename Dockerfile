@@ -17,11 +17,12 @@ RUN usermod -aG polkitd hermes
 RUN usermod -s /bin/bash hermes
 RUN echo "alias hermes='/opt/hermes/.venv/bin/hermes'" | tee -a .bashrc
 
+RUN /opt/hermes/.venv/bin/python /tmp/get-pip.py
+RUN /opt/hermes/.venv/bin/python -m pip install playwright
+
 USER hermes
 
 RUN hermes plugins enable google_meet
-RUN /opt/hermes/.venv/bin/python /tmp/get-pip.py
-RUN /opt/hermes/.venv/bin/python -m pip install playwright
 
 USER root
 
