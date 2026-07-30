@@ -6,7 +6,7 @@ USER root
 
 RUN apt update -q
 RUN apt install chromium iproute2 sudo tmux screen unzip \
-    vim inetutils-ping netcat-traditional jq python3-pip  strace python3-pip unzip  git curl  -y
+    vim inetutils-ping netcat-traditional jq python3-pip  strace python3-pip unzip  git curl libreoffice-impress  -y
 RUN curl -sSL https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
 RUN chmod 777 /tmp/get-pip.py
 
