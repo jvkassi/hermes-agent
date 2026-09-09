@@ -10,6 +10,7 @@ services:
         privileged: true
         ports:
           - 8642:8642
+          - 9119:9119
         expose: 
           - 8642
           - 3000
