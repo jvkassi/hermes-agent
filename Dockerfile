@@ -1,5 +1,5 @@
 # Look here for latest version alpine/openclaw - Docker Image
-FROM nousresearch/hermes-agent:v0.23.1
+FROM nousresearch/hermes-agent
 
 # Switch to root , to install packages
 USER root
@@ -18,11 +18,6 @@ RUN usermod -s /bin/bash hermes
 RUN echo "alias hermes='/opt/hermes/.venv/bin/hermes'" | tee -a .bashrc
 
 RUN /opt/hermes/.venv/bin/python /tmp/get-pip.py
-RUN /opt/hermes/.venv/bin/python -m pip install playwright
-
-USER hermes
-
-RUN hermes plugins enable google_meet
 
 USER root
 
