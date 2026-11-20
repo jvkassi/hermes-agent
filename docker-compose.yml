@@ -23,6 +23,7 @@ services:
         command: gateway run
         environment:
           # - HERMES_DASHBOARD=1
+          - HERMES_HOME=/opt/data
           - TELEGRAM_ALLOWED_USERS=282184670
 
 
